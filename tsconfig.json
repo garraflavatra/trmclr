@@ -1,23 +1,13 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "include": [
+    "index.js"
+  ],
   "compilerOptions": {
-    "composite": false,
+    // Rread JS files, as normally they are ignored as source files
+    "allowJs": true,
+    // Generate d.ts files
     "declaration": true,
-    "declarationMap": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "inlineSources": false,
-    "isolatedModules": true,
-    "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "importsNotUsedAsValues": "error",
-    "lib": ["ESNext"],
-    "target": "es2020",
-    "module": "es2022"
-  },
-  "exclude": ["node_modules"]
+    // Only output d.ts files
+    "emitDeclarationOnly": true
+  }
 }
