@@ -1,3 +1,5 @@
+/* global process, Deno */
+
 /**
  * @typedef Color
  * @property {string} open
@@ -12,7 +14,11 @@
  * @property {number} b
  */
 
-/** True if [`NO_COLOR`](https://no-color.org/) is set. */
+/**
+ * True if `NO_COLOR` is set.
+ * @see https://no-color.org/
+ */
+// @ts-expect-error Depends on environment.
 export const noColor = !!process?.env?.NO_COLOR || !!Deno?.noColor;
 
 let enabled = !noColor;
@@ -50,9 +56,7 @@ function code(open, close) {
  * @returns {string}
  */
 function run(str, code) {
-  return enabled
-    ? `${code.open}${str.replace(code.regexp, code.open)}${code.close}`
-    : str;
+  return enabled ? `${code.open}${str.replace(code.regexp, code.open)}${code.close}` : str;
 }
 
 /**
@@ -61,7 +65,7 @@ function run(str, code) {
  * @returns Colored string.
  */
 export function reset(str) {
-  return run(str, code([0], 0));
+  return run(str, code([ 0 ], 0));
 }
 
 /**
@@ -70,7 +74,7 @@ export function reset(str) {
  * @returns Colored string.
  */
 export function bold(str) {
-  return run(str, code([1], 22));
+  return run(str, code([ 1 ], 22));
 }
 
 /**
@@ -79,7 +83,7 @@ export function bold(str) {
  * @returns Colored string.
  */
 export function dim(str) {
-  return run(str, code([2], 22));
+  return run(str, code([ 2 ], 22));
 }
 
 /**
@@ -88,7 +92,7 @@ export function dim(str) {
  * @returns Colored string.
  */
 export function italic(str) {
-  return run(str, code([3], 23));
+  return run(str, code([ 3 ], 23));
 }
 
 /**
@@ -97,7 +101,7 @@ export function italic(str) {
  * @returns Colored string.
  */
 export function underline(str) {
-  return run(str, code([4], 24));
+  return run(str, code([ 4 ], 24));
 }
 
 /**
@@ -106,7 +110,7 @@ export function underline(str) {
  * @returns Colored string.
  */
 export function inverse(str) {
-  return run(str, code([7], 27));
+  return run(str, code([ 7 ], 27));
 }
 
 /**
@@ -115,7 +119,7 @@ export function inverse(str) {
  * @returns Colored string.
  */
 export function hidden(str) {
-  return run(str, code([8], 28));
+  return run(str, code([ 8 ], 28));
 }
 
 /**
@@ -124,7 +128,7 @@ export function hidden(str) {
  * @returns Colored string.
  */
 export function strikethrough(str) {
-  return run(str, code([9], 29));
+  return run(str, code([ 9 ], 29));
 }
 
 /**
@@ -133,7 +137,7 @@ export function strikethrough(str) {
  * @returns Colored string.
  */
 export function black(str) {
-  return run(str, code([30], 39));
+  return run(str, code([ 30 ], 39));
 }
 
 /**
@@ -142,7 +146,7 @@ export function black(str) {
  * @returns Colored string.
  */
 export function red(str) {
-  return run(str, code([31], 39));
+  return run(str, code([ 31 ], 39));
 }
 
 /**
@@ -151,7 +155,7 @@ export function red(str) {
  * @returns Colored string.
  */
 export function green(str) {
-  return run(str, code([32], 39));
+  return run(str, code([ 32 ], 39));
 }
 
 /**
@@ -160,7 +164,7 @@ export function green(str) {
  * @returns Colored string.
  */
 export function yellow(str) {
-  return run(str, code([33], 39));
+  return run(str, code([ 33 ], 39));
 }
 
 /**
@@ -169,7 +173,7 @@ export function yellow(str) {
  * @returns Colored string.
  */
 export function blue(str) {
-  return run(str, code([34], 39));
+  return run(str, code([ 34 ], 39));
 }
 
 /**
@@ -178,7 +182,7 @@ export function blue(str) {
  * @returns Colored string.
  */
 export function magenta(str) {
-  return run(str, code([35], 39));
+  return run(str, code([ 35 ], 39));
 }
 
 /**
@@ -187,7 +191,7 @@ export function magenta(str) {
  * @returns Colored string.
  */
 export function cyan(str) {
-  return run(str, code([36], 39));
+  return run(str, code([ 36 ], 39));
 }
 
 /**
@@ -196,7 +200,7 @@ export function cyan(str) {
  * @returns Colored string.
  */
 export function white(str) {
-  return run(str, code([37], 39));
+  return run(str, code([ 37 ], 39));
 }
 
 /**
@@ -214,7 +218,7 @@ export function gray(str) {
  * @returns Colored string.
  */
 export function brightBlack(str) {
-  return run(str, code([90], 39));
+  return run(str, code([ 90 ], 39));
 }
 
 /**
@@ -223,7 +227,7 @@ export function brightBlack(str) {
  * @returns Colored string.
  */
 export function brightRed(str) {
-  return run(str, code([91], 39));
+  return run(str, code([ 91 ], 39));
 }
 
 /**
@@ -232,7 +236,7 @@ export function brightRed(str) {
  * @returns Colored string.
  */
 export function brightGreen(str) {
-  return run(str, code([92], 39));
+  return run(str, code([ 92 ], 39));
 }
 
 /**
@@ -241,7 +245,7 @@ export function brightGreen(str) {
  * @returns Colored string.
  */
 export function brightYellow(str) {
-  return run(str, code([93], 39));
+  return run(str, code([ 93 ], 39));
 }
 
 /**
@@ -250,7 +254,7 @@ export function brightYellow(str) {
  * @returns Colored string.
  */
 export function brightBlue(str) {
-  return run(str, code([94], 39));
+  return run(str, code([ 94 ], 39));
 }
 
 /**
@@ -259,7 +263,7 @@ export function brightBlue(str) {
  * @returns Colored string.
  */
 export function brightMagenta(str) {
-  return run(str, code([95], 39));
+  return run(str, code([ 95 ], 39));
 }
 
 /**
@@ -268,7 +272,7 @@ export function brightMagenta(str) {
  * @returns Colored string.
  */
 export function brightCyan(str) {
-  return run(str, code([96], 39));
+  return run(str, code([ 96 ], 39));
 }
 
 /**
@@ -277,7 +281,7 @@ export function brightCyan(str) {
  * @returns Colored string.
  */
 export function brightWhite(str) {
-  return run(str, code([97], 39));
+  return run(str, code([ 97 ], 39));
 }
 
 /**
@@ -286,7 +290,7 @@ export function brightWhite(str) {
  * @returns Colored string.
  */
 export function bgBlack(str) {
-  return run(str, code([40], 49));
+  return run(str, code([ 40 ], 49));
 }
 
 /**
@@ -295,7 +299,7 @@ export function bgBlack(str) {
  * @returns Colored string.
  */
 export function bgRed(str) {
-  return run(str, code([41], 49));
+  return run(str, code([ 41 ], 49));
 }
 
 /**
@@ -304,7 +308,7 @@ export function bgRed(str) {
  * @returns Colored string.
  */
 export function bgGreen(str) {
-  return run(str, code([42], 49));
+  return run(str, code([ 42 ], 49));
 }
 
 /**
@@ -313,7 +317,7 @@ export function bgGreen(str) {
  * @returns Colored string.
  */
 export function bgYellow(str) {
-  return run(str, code([43], 49));
+  return run(str, code([ 43 ], 49));
 }
 
 /**
@@ -322,7 +326,7 @@ export function bgYellow(str) {
  * @returns Colored string.
  */
 export function bgBlue(str) {
-  return run(str, code([44], 49));
+  return run(str, code([ 44 ], 49));
 }
 
 /**
@@ -331,7 +335,7 @@ export function bgBlue(str) {
  * @returns Colored string.
  */
 export function bgMagenta(str) {
-  return run(str, code([45], 49));
+  return run(str, code([ 45 ], 49));
 }
 
 /**
@@ -340,7 +344,7 @@ export function bgMagenta(str) {
  * @returns Colored string.
  */
 export function bgCyan(str) {
-  return run(str, code([46], 49));
+  return run(str, code([ 46 ], 49));
 }
 
 /**
@@ -349,7 +353,7 @@ export function bgCyan(str) {
  * @returns Colored string.
  */
 export function bgWhite(str) {
-  return run(str, code([47], 49));
+  return run(str, code([ 47 ], 49));
 }
 
 /**
@@ -358,7 +362,7 @@ export function bgWhite(str) {
  * @returns Colored string.
  */
 export function bgBrightBlack(str) {
-  return run(str, code([100], 49));
+  return run(str, code([ 100 ], 49));
 }
 
 /**
@@ -367,7 +371,7 @@ export function bgBrightBlack(str) {
  * @returns Colored string.
  */
 export function bgBrightRed(str) {
-  return run(str, code([101], 49));
+  return run(str, code([ 101 ], 49));
 }
 
 /**
@@ -376,7 +380,7 @@ export function bgBrightRed(str) {
  * @returns Colored string.
  */
 export function bgBrightGreen(str) {
-  return run(str, code([102], 49));
+  return run(str, code([ 102 ], 49));
 }
 
 /**
@@ -385,7 +389,7 @@ export function bgBrightGreen(str) {
  * @returns Colored string.
  */
 export function bgBrightYellow(str) {
-  return run(str, code([103], 49));
+  return run(str, code([ 103 ], 49));
 }
 
 /**
@@ -394,7 +398,7 @@ export function bgBrightYellow(str) {
  * @returns Colored string.
  */
 export function bgBrightBlue(str) {
-  return run(str, code([104], 49));
+  return run(str, code([ 104 ], 49));
 }
 
 /**
@@ -403,7 +407,7 @@ export function bgBrightBlue(str) {
  * @returns Colored string.
  */
 export function bgBrightMagenta(str) {
-  return run(str, code([105], 49));
+  return run(str, code([ 105 ], 49));
 }
 
 /**
@@ -412,7 +416,7 @@ export function bgBrightMagenta(str) {
  * @returns Colored string.
  */
 export function bgBrightCyan(str) {
-  return run(str, code([106], 49));
+  return run(str, code([ 106 ], 49));
 }
 
 /**
@@ -421,7 +425,7 @@ export function bgBrightCyan(str) {
  * @returns Colored string.
  */
 export function bgBrightWhite(str) {
-  return run(str, code([107], 49));
+  return run(str, code([ 107 ], 49));
 }
 
 /**
@@ -444,7 +448,7 @@ function clampAndTruncate(n, max = 255, min = 0) {
  * @returns Colored string.
  */
 export function rgb8(str, color) {
-  return run(str, code([38, 5, clampAndTruncate(color)], 39));
+  return run(str, code([ 38, 5, clampAndTruncate(color) ], 39));
 }
 
 /**
@@ -456,7 +460,7 @@ export function rgb8(str, color) {
  * @returns Colored string.
  */
 export function bgRgb8(str, color) {
-  return run(str, code([48, 5, clampAndTruncate(color)], 49));
+  return run(str, code([ 48, 5, clampAndTruncate(color) ], 49));
 }
 
 /**
@@ -471,7 +475,7 @@ export function rgb24(str, color) {
   if (typeof color === 'number') {
     return run(
       str,
-      code([38, 2, (color >> 16) & 0xff, (color >> 8) & 0xff, color & 0xff], 39)
+      code([ 38, 2, (color >> 16) & 0xff, (color >> 8) & 0xff, color & 0xff ], 39)
     );
   }
   return run(
@@ -501,7 +505,7 @@ export function bgRgb24(str, color) {
   if (typeof color === 'number') {
     return run(
       str,
-      code([48, 2, (color >> 16) & 0xff, (color >> 8) & 0xff, color & 0xff], 49)
+      code([ 48, 2, (color >> 16) & 0xff, (color >> 8) & 0xff, color & 0xff ], 49)
     );
   }
   return run(

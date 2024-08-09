@@ -305,7 +305,10 @@ export function stripColor(str: string): string;
  * @property {number} g
  * @property {number} b
  */
-/** True if [`NO_COLOR`](https://no-color.org/) is set. */
+/**
+ * True if `NO_COLOR` is set.
+ * @see https://no-color.org/
+ */
 export const noColor: boolean;
 export type Color = {
     open: string;
