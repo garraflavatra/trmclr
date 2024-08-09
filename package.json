@@ -28,7 +28,7 @@
   "homepage": "https://github.com/garraflavatra/trmclr#readme",
   "scripts": {
     "build": "rm -rf dist && tsc && rollup index.mjs -f umd -n trmclr -o dist/index.cjs",
-    "lint": "eslint index.js"
+    "lint": "eslint index.mjs"
   },
   "devDependencies": {
     "@garraflavatra/yeslint": "^1.2.0",
