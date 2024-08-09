@@ -1,13 +1,12 @@
 {
   "include": [
-    "index.js"
+    "index.mjs"
   ],
   "compilerOptions": {
-    // Rread JS files, as normally they are ignored as source files
+    "module": "Node16",
+    "outDir": "dist",
     "allowJs": true,
-    // Generate d.ts files
     "declaration": true,
-    // Only output d.ts files
     "emitDeclarationOnly": true
   }
 }

@@ -1,4 +1,4 @@
-/* global process, Deno */
+/* global globalThis */
 
 /**
  * @typedef Color
@@ -19,7 +19,7 @@
  * @see https://no-color.org/
  */
 // @ts-expect-error Depends on environment.
-export const noColor = !!process?.env?.NO_COLOR || !!Deno?.noColor;
+export const noColor = !!globalThis.process?.env?.NO_COLOR || !!globalThis.Deno?.noColor;
 
 let enabled = !noColor;
 

@@ -2,11 +2,15 @@
   "name": "trmclr",
   "version": "1.0.1",
   "description": "Terminal colors but easier",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "author": "Romein van Buren <romein@vburen.nl>",
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "index.mjs",
+  "types": "dist/index.d.mts",
+  "type": "module",
   "files": [
-    "index.js",
-    "index.d.ts"
+    "index.mjs",
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -18,14 +22,12 @@
     "terminal",
     "console"
   ],
-  "author": "Romein van Buren <romein@vburen.nl>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/garraflavatra/trmclr/issues"
   },
   "homepage": "https://github.com/garraflavatra/trmclr#readme",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc && rollup index.mjs -f umd -n trmclr -o dist/index.cjs",
     "lint": "eslint index.js"
   },
   "devDependencies": {
@@ -33,10 +35,14 @@
     "@types/node": "^22.1.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "eslint": "^8.57.0",
+    "rollup": "^4.20.0",
     "typescript": "^5.5.4"
   },
   "eslintConfig": {
     "extends": "./node_modules/@garraflavatra/yeslint/configs/generic.js",
+    "ignorePatterns": [
+      "dist"
+    ],
     "parserOptions": {
       "sourceType": "module"
     }
