@@ -1,11 +1,12 @@
 {
   "name": "trmclr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Terminal colors but easier",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "repository": {
     "type": "git",
