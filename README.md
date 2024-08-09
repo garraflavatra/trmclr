@@ -1,8 +1,9 @@
 # trmclr
 
-Easy terminal colors.
+[![NPM Version](https://img.shields.io/npm/v/trmclr)](https://www.npmjs.com/package/trmclr)
 
-- Supports browsers, [Node.js](https://nodejs.org), [Deno](https://deno.com), [Bun](https://bun.sh), and probably some other environments.
+Easy terminal colors for browsers, [Node.js](https://nodejs.org), [Deno](https://deno.com), [Bun](https://bun.sh), and probably some other environments.
+
 - Comes with 45 colors and helpers.
 - Respects [`NO_COLOR`](https://no-color.org/).
 - No dependencies.
