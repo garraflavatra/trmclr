@@ -20,9 +20,24 @@ import { cyan, bgMagenta } from 'trmclr';
 console.log(cyan(bgMagenta('Some text')));
 ```
 
-## Enable or disable color
+### Enable or disable color
 
-By using `setColorEnabled(true)` or `setColorEnabled(false)` you can respectively enable and disable color output. Use `getColorEnabled()` to retrieve the current state.
+```js
+import { getColorEnabled, setColorEnabled } from 'trmclr';
+
+setColorEnabled(true);
+setColorEnabled(false);
+
+getColorEnabled(); // → false
+```
+
+### Remove colors and decorations
+
+```js
+import { cyan, stripColor } from 'trmclr';
+
+stripColor(cyan('Hi')); // → uncolored "Hi"
+```
 
 ## License
 
