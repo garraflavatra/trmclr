@@ -1,11 +1,12 @@
 # trmclr
 
-- Easy terminal colors, ported from the Deno standard library.
+Easy terminal colors, ported from the Deno standard library.
+
 - Supports Node.js, browsers, Deno, and probably some other environments.
 - Comes with 45 colors and helpers.
 - Respects [`NO_COLOR`](http://no-color.org/).
 - No dependencies.
-- Allows for tree-shaking.
+- Tree-shakeable.
 
 ## Colors and helpers
 
@@ -14,7 +15,7 @@ bgBlack, bgBlue, bgBrightBlack, bgBrightBlue, bgBrightCyan, bgBrightGreen, bgBri
 ## Usage
 
 ```js
-import { cyan, bgMagenta } from 'trmcrl';
+import { cyan, bgMagenta } from 'trmclr';
 
 console.log(cyan(bgMagenta('Some text')));
 ```
