@@ -1,8 +1,8 @@
 # trmclr
 
-Easy terminal colors, ported from the Deno standard library.
+Easy terminal colors.
 
-- Supports Node.js, browsers, Deno, and probably some other environments.
+- Supports browsers, [Node.js](https://nodejs.org), [Deno](https://deno.com), [Bun](https://bun.sh), and probably some other environments.
 - Comes with 45 colors and helpers.
 - Respects [`NO_COLOR`](http://no-color.org/).
 - No dependencies.
@@ -29,5 +29,7 @@ By using `setColorEnabled(true)` or `setColorEnabled(false)` you can respectivel
 (c) 2022-2024 [Romein van Buren](mailto:romein@vburen.nl). Licensed under the MIT license.
 
 For the full copyright and license information, please see the [`LICENSE.md`](./LICENSE.md) file that was distributed with this source code.
+
+Original implementation: (c) 2018-2022 [the Deno authors](https://github.com/denoland/std/blob/0.159.0/fmt/colors.ts).
 
 [![Smart Yellow](https://code.smartyellow.net/smartyellow/meta/raw/branch/main/logo.png)](https://www.smartyellow.nl)
